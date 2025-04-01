@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Image and Description</title>
+  <link rel="stylesheet" href="add.css" />
+</head>
+<body>
+  <form id="addForm" action="upload.php" method="post" enctype="multipart/form-data">
+    <label for="image">Select Image:</label>
+    <input type="file" id="image" name="image" accept="image/*" required /><br/><br/>
+    
+    <label for="description">Description:</label>
+    <textarea id="description" name="description" rows="6" cols="50" required></textarea><br/><br/>
+    
+    <button type="submit">Submit</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,210 @@
+/* Global Styles */
+body {
+  max-width: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #0b1321;
+  font-family: Arial, sans-serif;
+}
+
+/* Container Section (Cards) */
+.container {
+  display: flex;
+  flex-wrap: wrap; /* This allows the cards to wrap onto new lines if needed */
+  justify-content: center; /* Centers the cards horizontally */
+  padding: 15px;
+  padding-bottom: 120px; /* Increased padding to create more gap between footer and cards */
+}
+
+/* Navbar Section */
+.navbar {
+  background-color: #1b2330;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  width: 60px;
+}
+
+.title {
+  color: #ffc107;
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+/* Social Media Icons in Navbar */
+.social-icons {
+  display: flex;
+  gap: 15px;
+}
+
+.icon img {
+  width: 35px;
+  height: 35px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.icon:hover img {
+  transform: scale(1.2);
+}
+
+.line {
+  width: 80%;
+  margin: 10px auto;
+  border: 1px solid #ccc;
+}
+
+/* Card Section */
+.card {
+  background-color: #1b2330;
+  border-radius: 12px;
+  padding: 15px;
+  width: 300px;
+  margin: 10px; /* Added margin for spacing between cards */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card-img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card-content {
+  margin-top: 10px;
+}
+
+.card-description {
+  color: #ffffff;
+  font-size: 14px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    /* padding: 15px; */
+  }
+
+  .navbar-left {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .logo {
+    width: 50px;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-top: 5px;
+  }
+
+  .social-icons {
+    margin-top: 10px;
+  }
+
+  .card {
+    width: 45%; /* Reduced card width for better fit */
+    margin: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 40px;
+  }
+
+  .title {
+    font-size: 18px;
+  }
+
+  .icon img {
+    width: 30px;
+    height: 30px;
+  }
+
+  .card {
+    width: 80%; /* Adjusted for smaller screens */
+    margin: 15px auto;
+  }
+
+  .card-description {
+    font-size: 12px;
+  }
+}
+
+/* Footer Section */
+/* Footer Section */
+.footer {
+  background-color: #1b2330;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-size: 14px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  text-align: center;
+  margin-top: 100px; /* Increased margin to create more gap between cards and footer */
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.footer-left p {
+  margin: 0;
+  font-size: 16px;
+  margin-bottom: 10px; /* Adds space between copyright and social links */
+}
+
+.footer-right .social-links {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.footer-right .social-links .icon img {
+  width: 25px;
+  height: 25px;
+  transition: transform 0.2s ease-in-out;
+}
+
+.footer-right .social-links .icon:hover img {
+  transform: scale(1.2);
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+  .footer {
+    padding: 20px;
+  }
+
+  .footer-left p {
+    font-size: 14px;
+  }
+
+  .footer-right .social-links {
+    margin-top: 10px;
+  }
+}

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VivaSpiral - Follow Us</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-left">
+      <a href="#" onclick="authenticateUser()">
+        <img src="logo/vivaspiral.png" alt="VIVASPIRAL Logo" class="logo" />
+      </a>
+      <h1 class="title">VIVASPIRAL</h1>
+    </div>
+    <div class="social-icons">
+      <a href="https://www.facebook.com/vivaspiral" class="icon facebook">
+        <img src="logo/facebook.png" alt="Facebook Logo" />
+      </a>
+      <a href="https://www.instagram.com/vivaspiral/" class="icon instagram">
+        <img src="logo/Instagram.png" alt="Instagram Logo" />
+      </a>
+      <a href="https://www.threads.net/@vivaspiral" class="icon thread">
+        <img src="logo/Threads.png" alt="Threads Logo" />
+      </a>
+      <a href="https://www.youtube.com/@vivaspiral" class="icon youtube">
+        <img src="logo/youtube.png" alt="YouTube Logo" />
+      </a>
+      <a href="https://x.com/VivaSpiral" class="icon x">
+        <img src="logo/x.png" alt="X Logo" />
+      </a>
+    </div>
+  </div>
+
+  <div class="container" id="cardContainer">
+    <!-- Cards will be displayed here -->
+  </div>
+
+  <!-- Scroll to Top Button -->
+  <button onclick="scrollToTop()" id="scrollToTopBtn" title="Go to top">&#8679;</button>
+
+  <script>
+    function authenticateUser() {
+      const userId = prompt("Enter ID:");
+      const password = prompt("Enter Password:");
+
+      if (userId === "admin" && password === "123456") {
+        alert("Login successful! Redirecting to Add Page.");
+        window.location.href = "add.html";
+      } else {
+        alert("Invalid credentials! Redirecting to Home Page.");
+        window.location.href = "index.html";
+      }
+    }
+
+    // Fetch and display cards
+    async function fetchCards() {
+      try {
+        const response = await fetch('fetch.php');
+        const data = await response.json();
+        const cardContainer = document.getElementById('cardContainer');
+
+        data.forEach(card => {
+          const cardElement = document.createElement('section');
+          cardElement.classList.add('card');
+          cardElement.innerHTML = `
+            <img src="${card.image_path}" alt="Card Image" class="card-img" />
+            <div class="card-content">
+              <p class="card-description">${card.description}</p>
+            </div>
+          `;
+          cardContainer.appendChild(cardElement);
+        });
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    }
+
+    fetchCards();
+
+    // Scroll to Top Functionality
+    const scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollToTopBtn.style.display = "block";
+      } else {
+        scrollToTopBtn.style.display = "none";
+      }
+    };
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  </script>
+
+  <style>
+    #scrollToTopBtn {
+      display: none;
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 99;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      padding: 15px;
+      border-radius: 100%;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    #scrollToTopBtn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+
+<!-- Footer Section -->
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-content">
+    <div class="footer-left">
+      <p>&copy; 2025 VivaSpiral. All Rights Reserved.</p>
+    </div>
+    <div class="footer-right">
+      <div class="social-links">
+        <a href="https://www.facebook.com/vivaspiral" class="icon facebook">
+          <img src="logo/facebook.png" alt="Facebook Logo" />
+        </a>
+        <a href="https://www.instagram.com/vivaspiral/" class="icon instagram">
+          <img src="logo/Instagram.png" alt="Instagram Logo" />
+        </a>
+        <a href="https://www.threads.net/@vivaspiral" class="icon thread">
+          <img src="logo/Threads.png" alt="Threads Logo" />
+        </a>
+        <a href="https://www.youtube.com/@vivaspiral" class="icon youtube">
+          <img src="logo/youtube.png" alt="YouTube Logo" />
+        </a>
+        <a href="https://x.com/VivaSpiral" class="icon x">
+          <img src="logo/x.png" alt="X Logo" />
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+
+</body>
+</html>
